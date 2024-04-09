@@ -1,0 +1,145 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<!-- <div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <div class="card-title h3 mb-0">Find Bus</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'findbus' %}" method="post" id="find-form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="source" class="control-labell">From</label>
+                                <input name='source' class="form-control rounded-0" type="text" id="source" value="{% if data.source %}{{data.source}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="destination" class="control-labell">Destination</label>
+                                <input name='destination' id="destination" class="form-control rounded-0" type="text" value="{% if data.destination %}{{data.destination}}{% endif %}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="control-labell">Date</label>
+                                <input name='date' id="date" class="form-control rounded-0" type="date" value="{% if data.date %}{{data.date}}{% endif %}" required>
+
+                            </div>
+                            {% if error %}
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
+
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-sm rounded-0 btn-primary w-100" form="find-form">Find</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+    <style>
+      .background-radial-gradient {
+        background-color: hsl(218, 41%, 15%);
+        background-image: radial-gradient(650px circle at 0% 0%,
+            hsl(218, 41%, 35%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%),
+          radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
+      }
+  
+      #radius-shape-1 {
+        height: 220px;
+        width: 220px;
+        top: -60px;
+        left: -130px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+      }
+  
+      #radius-shape-2 {
+        border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+        bottom: -60px;
+        right: -110px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+      }
+  
+      .bg-glass {
+        background-color: hsla(0, 0%, 100%, 0.9) !important;
+        backdrop-filter: saturate(200%) blur(25px);
+      }
+    </style>
+  
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+            The best offer <br />
+            <span style="color: hsl(218, 81%, 75%)">for your business</span>
+          </h1>
+          <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Temporibus, expedita iusto veniam atque, magni tempora mollitia
+            dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+            ab ipsum nisi dolorem modi. Quos?
+            
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore recusandae natus facilis nemo omnis eum consequuntur esse! Numquam quisquam suscipit ullam ea soluta quae nobis ratione inventore sed, corporis dolor?
+            Nam nesciunt quis obcaecati iure. Ab dolore magni debitis et deleniti harum aut quibusdam incidunt iusto est architecto ipsam consectetur sed, esse reiciendis. Quo perferendis tempora sint veritatis dicta laudantium!
+            Optio deleniti amet et ab soluta perferendis illum eligendi rem recusandae obcaecati deserunt iure harum iste, dolor labore totam asperiores laborum
+          </p>
+          
+        </div>
+  
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+                <form action="{% url 'findbus' %}" method="post" id="find-form">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="source" class="control-labell">From</label>
+                        <input name='source' class="form-control rounded-0" type="text" id="source" value="{% if data.source %}{{data.source}}{% endif %}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="destination" class="control-labell">Destination</label>
+                        <input name='destination' id="destination" class="form-control rounded-0" type="text" value="{% if data.destination %}{{data.destination}}{% endif %}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="control-labell">Date</label>
+                        <input name='date' id="date" class="form-control rounded-0" type="date" value="{% if data.date %}{{data.date}}{% endif %}" required>
+
+                    </div>
+                    {% if error %}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                    {% endif %}
+                    <div class="">
+                        <button class="btn btn-sm rounded-0 btn-primary w-100" form="find-form">Find</button>
+                    </div>
+
+                </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+{% endblock %}
